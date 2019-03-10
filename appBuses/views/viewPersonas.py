@@ -14,4 +14,8 @@ def index(request):
 @csrf_exempt
 def personas(request): 
   if request.method == 'GET':
-    return JsonResponse({'Message':'Hola'}) 
+    return JsonResponse({'Message':'Hola'})
+
+def test(request, idBusqueda):
+  if request.method == 'GET':
+    return JsonResponse({'buscando': idBusqueda})
