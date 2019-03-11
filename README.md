@@ -1,21 +1,75 @@
-# frontbuses
+# AppBuses
+Aplicación para manejar buses, trayectos, horarios, pasajeros y choferes
 
-> A Vue.js project
+## Pre suposiciones 
+La siguiente guía de instalacion presupone que existe una instalacion de python junto con pip y sus dependencias dentro del equipo.
+Las dependencias de python necesarias básicas de las cuales se hace la pre suposicion son:
+``` bash
+pip install virtualenv
+```
+
 
 ## Build Setup
 
 ``` bash
-# install dependencies
-npm install
+# se recomienda usar Virtual Environments para no tener problemas con las dependencias locales
+# en caso que no se quiera usar, pasar al punto 'instalar dependencias de python'
 
-# serve with hot reload at localhost:8080
-npm run dev
+# crear virtual Environment en carpeta padre del proyecto
+virtualenv ../vappBuses
 
-# build for production with minification
+#activar
+#en caso que se creó en otra carpeta activar desde esa dirección
+..\vappBuses\Scripts\activate
+
+#instalar dependencias de python
+pip install Django==2.1.7  
+pip install django-cors-headers==2.5.0  
+pip install djangorestframework==3.9.2  
+pip install pytz==2018.9
+
+#instalar dependencias de NPM
+npm install --no-audit
+
+#hacer build del front
 npm run build
 
-# build for production and view the bundle analyzer report
-npm run build --report
+#correr proyecto
+#por configuraciones con la API, el proyecto se tiene que ejecutar en puerto 8000
+py .\manage.py runserver 8000
+
 ```
 
-For a detailed explanation on how things work, check out the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
+### Posibles problemas
+Usar virtual Environments puede generar problemas en windows al activarlas.
+Si al ejecutar el comando activate genera un error, puede que windows tenga bloqueada la ejecución de comandos no firmados, para eso se recomienda ejecutar el siguiente comando como adminsitrador en la consola de windows:
+
+``` bash
+Set-ExecutionPolicy Unrestricted
+```
+Si el comando no se ejecuta correctamente, puede que necesite ponerse en contacto con un administrador del sistema para habilitarlo.
+
+
+## Estado de cumplimiento de requerimientos
+Debido a diversas circunstancias técnicas y temporales, no se pudieron completar a cabalidad los requerimientos, el estado se explica a continuación:
+
+- EL crud tanto en el BACKEND como en el FRONT está completo, pero faltan validaciones de tiempo y de cantidad de pasajeros en cada bus.
+- Para backend se pidieron 2 funciones de reportería específicas, las cuales no se pudieron terminar por problemas de tiempo para entender y practicar con el ORM de DJANGO
+- Para el sistema de horarios, la fecha debió estar dentro en los horarios de salida y entrada como un formato 'DATETIME', de esa manera no habría problemas con horas de llegada en días siguientes. Al encontrar ese error el sistema ya estaba en una etapa finalizada, por lo que se dió prioridad a entregar el requerimiento.
+
+## Extras
+
+El modelo de base de datos actualizado y final, utilizado para el proyecto, está en la siguiente ruta.
+
+https://drive.google.com/open?id=18ProlTcZkwizywwdKnv9mZa_aNKQ6H51
+
+el proyecto front está también, de manera separada en la siguiente ruta:
+
+
+## Saludos finales
+Se agradece la consideracion para este proceso, ha sido muy entretenido aprender estas tecnologías, me hubiera gustado profundizar mucho mas en el tema de ORM, y backend en general, pero por temas de tiempo se tuve que priorizar un entregable.
+Espero que estemos en contacto. 
+
+Saludos! 
+
+Abner Sebick 🗼  🗾  🗻
