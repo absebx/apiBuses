@@ -13,6 +13,8 @@ pip install virtualenv
 ## Build Setup
 
 ``` bash
+#Ejecutar comandos en la carpeta del proyecto.
+
 # se recomienda usar Virtual Environments para no tener problemas con las dependencias locales
 # en caso que no se quiera usar, pasar al punto 'instalar dependencias de python'
 
