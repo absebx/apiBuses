@@ -4,14 +4,26 @@ from django.http import HttpResponse,JsonResponse
 from rest_framework.renderers import JSONRenderer
 from rest_framework.parsers import JSONParser
 
+from django.db.models import Count
+
 from appBuses.serializers import BusSerializer, HorarioServicioSerializer, PersonaSerializer, PasajeSerializer
 from appBuses.models import Bus, HorarioServicio, Persona, Pasaje
 
 def busesTrayectoCapacidadMayorCero(request, idTrayecto):
   if request.method == 'GET':
-    data = HorarioServicio.objects.filter(bus__modelo='modelo genial 2')
+
+    #1-traer buses que tienenen un trayecto con el id pedido
+    #2-quitar repetidos
+    #3-contar cantidad de pasajes para cada bus
+    #4-filtrar los buses que tienen pasajes 
+    data = Bus.objects.filter(horarioservicio__trayecto__idTrayecto=idTrayecto) \
+    .distinct() \
+    .annotate(cant=Count('horarioservicio__pasaje')) \
+    .filter(cant__gt=0)
+
+
     # data = data.get(idHorarioServicio__esact=)
-    serializer = HorarioServicioSerializer(data,many=True)
+    serializer = BusSerializer(data,many=True)
     return JsonResponse(serializer.data, safe=False)
     # buses = Bus.objects.get(idBus__exact=idTrayecto)
     # serializer = BusSerializer(buses)
