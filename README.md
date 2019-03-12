@@ -1,3 +1,4 @@
+
 # AppBuses
 Aplicación para manejar buses, trayectos, horarios, pasajeros y choferes
 
@@ -12,6 +13,8 @@ pip install virtualenv
 ## Build Setup
 
 ``` bash
+#Ejecutar comandos en la carpeta del proyecto.
+
 # se recomienda usar Virtual Environments para no tener problemas con las dependencias locales
 # en caso que no se quiera usar, pasar al punto 'instalar dependencias de python'
 
@@ -65,10 +68,12 @@ https://drive.google.com/open?id=18ProlTcZkwizywwdKnv9mZa_aNKQ6H51
 
 el proyecto front está también, de manera separada en la siguiente ruta:
 
+https://github.com/asder707/clientBuses
+
 
 ## Saludos finales
-Se agradece la consideracion para este proceso, ha sido muy entretenido aprender estas tecnologías, me hubiera gustado profundizar mucho mas en el tema de ORM, y backend en general, pero por temas de tiempo se tuve que priorizar un entregable.
-Espero que estemos en contacto. 
+Se agradece la consideración para este proceso, ha sido muy entretenido aprender estas tecnologías, me hubiera gustado profundizar mucho mas en el tema de ORM, y backend en general, pero por temas de tiempo se tuve que priorizar un entregable.
+Espero que estemos en contacto!
 
 Saludos! 
 
