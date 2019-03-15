@@ -57,7 +57,8 @@ Si el comando no se ejecuta correctamente, puede que necesite ponerse en contact
 Debido a diversas circunstancias técnicas y temporales, no se pudieron completar a cabalidad los requerimientos, el estado se explica a continuación:
 
 - EL crud tanto en el BACKEND como en el FRONT está completo, pero faltan validaciones de tiempo y de cantidad de pasajeros en cada bus.
-- Para backend se pidieron 2 funciones de reportería específicas, las cuales no se pudieron terminar por problemas de tiempo para entender y practicar con el ORM de DJANGO
+- Para las funciones especiales se pudo terminar el segundo del enunciado, quedando en la ruta de laa api = 'apiBuses/busesMayorCero/11'
+- Por dificultades técnicas el primer requerimiento especial para el enunciado no se pudo terminar para la fecha extra programada, pero de igual forma se pudo acercar mucho a la solución, este acercamiento quedó en la vista especial trayectosAvgPasajes en appBuses/views/viewCustoms.py, no se le asignó una ruta para para evitar errores.
 - Para el sistema de horarios, la fecha debió estar dentro en los horarios de salida y entrada como un formato 'DATETIME', de esa manera no habría problemas con horas de llegada en días siguientes. Al encontrar ese error el sistema ya estaba en una etapa finalizada, por lo que se dió prioridad a entregar el requerimiento.
 
 ## Extras
