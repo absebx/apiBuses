@@ -1,4 +1,5 @@
 from django.db import models
+from django.db.models import Avg
 import datetime
 
 # Create your models here.
@@ -52,6 +53,11 @@ class Trayecto(models.Model):
   def __str__(self):
     return self.ciudadSalida+'-'+self.ciudadLlegada
 
+class HorarioManager(models.Manager):
+  def get_queryset(self):
+    return 5
+
+
 class HorarioServicio(models.Model):
   idHorarioServicio = models.AutoField(primary_key=True)
   fechaServicio = models.DateField()
@@ -63,9 +69,12 @@ class HorarioServicio(models.Model):
   bus = models.ForeignKey(Bus, on_delete=models.CASCADE)
   chofer = models.ForeignKey(Persona, on_delete=models.CASCADE)
   trayecto = models.ForeignKey(Trayecto, on_delete=models.CASCADE)
+  # objects = HorarioServicioManager()
+  # countPasajeros = HorarioManager()
+
 
   def __str__(self):
-    return unicode(self.horaInicio)+'//'+ unicode(self.horaFin)
+    return (self.horaInicio.strftime("%H:%M:%S"))+'//'+ (self.horaFin.strftime("%H:%M:%S"))
 
 class Pasaje(models.Model):
   horario = models.ForeignKey(HorarioServicio, on_delete=models.CASCADE)

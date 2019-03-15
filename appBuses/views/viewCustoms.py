@@ -29,7 +29,10 @@ def busesTrayectoCapacidadMayorCero(request, idTrayecto):
     # serializer = BusSerializer(buses)
     # return JsonResponse(serializer.data)
 
+
+
 def horarioServicioTrayecto(request, idTrayecto):
+  
   if request.method == 'GET':
     data = HorarioServicio.objects.filter(trayecto__idTrayecto=idTrayecto).order_by('-fechaServicio')
 
